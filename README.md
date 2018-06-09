@@ -10,7 +10,7 @@ Steps:
 
 **0) Create a new VPS** or use existing one. Recommended VPS resource configuration is similar to the vultr's $5/mo (25GB SSD/1xCPU/1GB RAM, Ubuntu 16.04). It can handle several MNs running simultaneously on the same public IP address but they have to use different ports. Therefore you cannot easily run more than one RESPAWN MN on the same box. Different coins are fine.
 
-Create USER because you do not want to run RPWN as root
+Create a normal user since you should not run your system as root.
 
 Login in as root and run following commands.
 
