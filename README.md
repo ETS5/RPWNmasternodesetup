@@ -32,6 +32,7 @@ sudo visudo
 #Add the below line to the end of the file.
 
 [username] ALL=(ALL) ALL
+
 ctrl-x for saving press y
 
 Logout as root 
