@@ -64,7 +64,7 @@ cd ~
 git clone https://github.com/Eswede/RPWNmasternodesetup
 ```
 
-__NOTE:__ in case if you will need to re-download this setup script or binaries from github repo, use the following git command:
+__NOTE:__ in case if you will need to re-download this setup script from github repo, use the following git command:
 ```bash
 cd ~/RPWNmasternodesetup
 git reset --hard
@@ -77,12 +77,12 @@ git pull
 cd ~/RPWNmasternodesetup
 sudo bash RPWN-setup.sh [Masternode_Private_Key]
 ```
-__NOTE:__ This process may take anywhere from 5 to 20 minutes, depending on your VPS HW specs. If it's not your very first ever masternode setup, you may want to speed up the process by doing things in parallel. While the MN setup script is running on the VPS, you can spend this time getting ready to start your new masternode from your Hot Wallet (also referred to as Control Wallet) by following instructions in next step (6).
+__NOTE:__ This process may take anywhere from 5 to 20 minutes, depending on your VPS HW specs. If it's not your very first ever masternode setup, you may want to speed up the process by doing things in parallel. While the RPWNmasternodesetup script is running on the VPS, you can spend this time getting ready to start your new masternode from your Hot Wallet (also referred to as Control Wallet) by following instructions in next step (6).
 
 Once the script completes, it will output your VPS Public IP Address and masternode Private Key which it generated for this masternode. Detailed instructions on what to do next will be provided on the VPS console.
 
-**6) Prepare your Hot Wallet and start the new masternode**. In this step you will introduce your new masternode to the RPWN network by issuing a masternode start command from your wallet, which will broadcast information proving that
-the collateral for this masternode is secured in your wallet. Without this step your new masternode will function as a regular RPWN node (wallet) and will not yield any rewards. Usually you keep your Hot Wallet on your Windows machine where you securely store your funds for the MN collateral.
+**6) Prepare your Hot Wallet and start the new masternode**. In this step you will introduce your new masternode to the RESPAWN network by issuing a masternode start command from your wallet, which will broadcast information proving that
+the collateral for this masternode is secured in your wallet. Without this step your new masternode will function as a regular RESPAWN node (wallet) and will not yield any rewards. Usually you keep your Hot Wallet on your Windows machine where you securely store your funds for the MN collateral.
 
 Basically all you need to do is just edit the __masternode.conf__ text file located in your hot wallet __data directory__ to enter a few masternode parameters, restart the wallet and then issue a start command for this new masternode.
 
@@ -104,7 +104,7 @@ masternodealias publicipaddress:9321 masternodeprivatekey output-tx-ID output-tx
 Where:
 __masternodealias__ - your human readable masternode name (alias) which you use to identify the masternode. It can be any unique name as long as you can recognize it. It exists only in your wallet and has no impact on the masternode functionality.
 
-__publicipaddress:9321__ - this must be your masternode public IP address, which is usually the IP address of your VPS, accessible from the Internet. The new script (v1.1) will detect your IP address automatically. The __:9321__ suffix is the predefined and fixed TCP port which is being used in RESPAWN network for node-to-node and wallet-to-node communications. This port needs to be opened on your VPS server firewall so that others can talk to your masternode. The setup script takes care of it. NOTE: some VPS service providers may have additional firewall on their network which you may need to configure to open TCP port 9321. Vultr does not require this.
+__publicipaddress:9321__ - this must be your masternode public IP address, which is usually the IP address of your VPS, accessible from the Internet. The new script (v1.3) will detect your IP address automatically. The __:9321__ suffix is the predefined and fixed TCP port which is being used in RESPAWN network for node-to-node and wallet-to-node communications. This port needs to be opened on your VPS server firewall so that others can talk to your masternode. The setup script takes care of it. NOTE: some VPS service providers may have additional firewall on their network which you may need to configure to open TCP port 9321. Vultr does not require this.
 
 __masternodeprivatekey__ - this is your masternode private key which script will generate automatically. Each masternode will use its own unique private key to maintain secure communication with your Hot Wallet. You will have to generate a new key for each masternode you are setting up. Only your masternode and your hot wallet will be in possession of this private key. In case if you will need to change this key later for some reason, you will have to update it in your __masternode.conf__ in Hot Wallet as well as in the RPWN.conf in data directory on the masternode VPS.
 
@@ -225,13 +225,13 @@ The main purpose of this simple script is to monitor **masternode status and pee
 
 Typically you should see more than a few nodes listed in the table and the amount of data sent/received should be updating every several seconds on a healthy masternode.
 
-Currently RPWN nodes will display most (if not all) peers with IPv6 addresses. This is normal as long as the data is being transferred and peers stay connected for a long time. Initially, when the node is just started, the outbound connection table may not show any peers for quite some time. It may take several hours to build up a healthy and stable list of peers.
+Currently RESPAWN nodes will display most (if not all) peers with IPv6 addresses. This is normal as long as the data is being transferred and peers stay connected for a long time. Initially, when the node is just started, the outbound connection table may not show any peers for quite some time. It may take several hours to build up a healthy and stable list of peers.
 
 Sample output of the script from node 188.166.24.178 on June-9th 2018:
 
 ```
 ===========================================================================
-Outbound connections to other RESPAWN nodes [RPWN datadir: /root/.RPWNcore]
+Outbound connections to other RESPAWN nodes [RESPAWN datadir: /root/.RPWNcore]
 ===========================================================================
 Node IP               Ping    Rx/Tx     Since  Hdrs   Height  Time   Ban
 Address               (ms)   (KBytes)   Block  Syncd  Blocks  (min)  Score
