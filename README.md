@@ -4,11 +4,11 @@
 
 **NOTE:** This newer version of the script (v1.3) does not ask for IP address anymore. Instead the __script will detect VPS IP Address.   
 
-If you follow the steps and use a newly installed Ubuntu 16.04 VPS, it will automatically configure and start your Master Node. Ubuntu 17.10 and other Linux distros ate not currently supported.
+If you follow the steps and use a newly installed Ubuntu 16.04 VPS, it will automatically configure and start your RESPAWN Masternode. Ubuntu 17.10 and other Linux distros ate not currently supported.
 
 Steps:
 
-**0) Create a new VPS** or use existing one. Recommended VPS resource configuration is similar to the vultr's $5/mo (25GB SSD/1xCPU/1GB RAM, Ubuntu 16.04). It can handle several MNs running simultaneously on the same public IP address but they have to use dirfferent ports. Therefore you cannot easily run more than one RESPAWN MN on the same box. Different coins are fine.
+**0) Create a new VPS** or use existing one. Recommended VPS resource configuration is similar to the vultr's $5/mo (25GB SSD/1xCPU/1GB RAM, Ubuntu 16.04). It can handle several MNs running simultaneously on the same public IP address but they have to use different ports. Therefore you cannot easily run more than one RESPAWN MN on the same box. Different coins are fine.
 
 **1)** In Windows wallet, **create a new receiving address** and name it **mn1** for example.
 
@@ -43,7 +43,7 @@ git pull
 
 ```bash
 cd ~/RPWNmasternodesetup
-bash RPWN-setup.sh [your masternodeprivekey]
+bash RPWN-setup.sh [your masternodeprivkey]
 ```
 __NOTE:__ This process may take anywhere from 5 to 20 minutes, depending on your VPS HW specs. If it's not your very first ever masternode setup, you may want to speed up the process by doing things in parallel. While the MN setup script is running on the VPS, you can spend this time getting ready to start your new masternode from your Hot Wallet (also referred to as Control Wallet) by following instructions in next step (6).
 
@@ -152,7 +152,7 @@ listen=1
 server=1
 daemon=1
 maxconnections=256
-externalip=144.202.92.85
+externalip=188.166.24.178
 masternode=1
 masternodeprivkey=2333H9uMa8wrYGb1hNotRealPKey64vr8BRYjPZP3LAR6WFGg
 ```
@@ -170,7 +170,7 @@ The expected output for a functioning masternode will eventually look like this:
 ```
 {
   "vin": "CTxIn(COutPoint(cbe3c99bed2c874a14675c54004a5b5bfda8473b98bfbd80a15743c2a1117d4f, 1), scriptSig=)",
-  "service": "104.207.157.213:9321",
+  "service": "188.166.24.178:9321",
   "payee": "oN3ZoisQkdsCuXj7799kEcvJkWk6Bhc4uJ",
   "status": "Masternode successfully started"
 }
@@ -195,7 +195,7 @@ Typically you should see more than a few nodes listed in the table and the amoun
 
 Currently RPWN nodes will display most (if not all) peers with IPv6 addresses. This is normal as long as the data is being transferred and peers stay connected for a long time. Initially, when the node is just started, the outbound connection table may not show any peers for quite some time. It may take several hours to build up a healthy and stable list of peers.
 
-Sample output of the script from node 165.227.154.210 on June-9th 2018:
+Sample output of the script from node 188.166.24.178 on June-9th 2018:
 
 ```
 ===========================================================================
@@ -265,7 +265,7 @@ Example: nodemon.sh 10 22 will run every 10 seconds and query RPWNd in /root/.RP
 Press Ctrl-C to Exit...
 
 * * *
-
+```
 
 
 If you found this script and masternode setup guide helpful...,
