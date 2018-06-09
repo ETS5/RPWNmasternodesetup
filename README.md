@@ -10,6 +10,36 @@ Steps:
 
 **0) Create a new VPS** or use existing one. Recommended VPS resource configuration is similar to the vultr's $5/mo (25GB SSD/1xCPU/1GB RAM, Ubuntu 16.04). It can handle several MNs running simultaneously on the same public IP address but they have to use different ports. Therefore you cannot easily run more than one RESPAWN MN on the same box. Different coins are fine.
 
+Create USER because you do not want to run RPWN as root
+
+Login in as root and run following commands.
+
+```
+sudo adduser [username small characters]
+```
+choose password
+
+```
+[password]
+enter enter enter enter enter y
+```
+
+make your user is a sudoer
+
+```
+sudo visudo
+```
+#Add the below line to the end of the file.
+
+[username] ALL=(ALL) ALL
+
+Logout as root 
+
+restart PuTTy and login in as user instead of root
+
+
+
+
 **1)** In Windows wallet, **create a new receiving address** and name it **mn1** for example.
 
 **2) Send exactly 3000 RPWN to this new address**. NOTE: if you are setting up many masternodes and wish to perform multiple 3k payments in a row before following through steps (3)-(6), make sure you select correct __inputs__ for each payment or __lock__ your 3k coins manually after each payment using Coin Control Features, otherwise your coins may get reused and only last payment will yield valid masternode output. The wallet will lock your payments automatically after you restart it in step (6).
@@ -43,7 +73,7 @@ git pull
 
 ```bash
 cd ~/RPWNmasternodesetup
-bash RPWN-setup.sh [Masternode_Private_Key]
+sudo bash RPWN-setup.sh [Masternode_Private_Key]
 ```
 __NOTE:__ This process may take anywhere from 5 to 20 minutes, depending on your VPS HW specs. If it's not your very first ever masternode setup, you may want to speed up the process by doing things in parallel. While the MN setup script is running on the VPS, you can spend this time getting ready to start your new masternode from your Hot Wallet (also referred to as Control Wallet) by following instructions in next step (6).
 
