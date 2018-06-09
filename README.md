@@ -29,7 +29,7 @@ make your user is a sudoer
 ```
 sudo visudo
 ```
-#dd the below line to the end of the file.
+add the below line to the end of the file.
 
 [username] ALL=(ALL) ALL
 
