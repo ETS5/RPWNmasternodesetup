@@ -54,10 +54,10 @@ masternode outputs
 
 Copy it somewhere safe. You will use these in the masternode.conf file for your wallet later.
 
-**4) Connect to your VPS server console** using PuTTY terminal program, login as root and clone the setup script and wallet binaries from github repository.
+**4) Connect to your VPS server console** using PuTTY terminal program, login as user and clone the setup script.
 
 
-To download (clone) the script and binaries to your VPS, use the following command in VPS Linux console:
+To download (clone) the script to your VPS, use the following command in VPS Linux console:
 
 ```bash
 cd ~
@@ -71,7 +71,7 @@ git reset --hard
 git pull
 ```
 
-**5) Run the install script** which will install and configure your masternode with all necessary options.
+**5) Run the install script** which will download wallet binaries from github repository and install and configure your masternode with all necessary options.
 
 ```bash
 cd ~/RPWNmasternodesetup
