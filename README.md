@@ -23,7 +23,7 @@ masternode outputs
 Copy it somewhere safe. You will use these in the masternode.conf file for your wallet later.
 
 **4) Connect to your VPS server console** using PuTTY terminal program, login as root and clone the setup script and wallet binaries from github repository.
-(NOTE: Currently this script repo contains Linux wallet binaries wich are necessary to run master node on VPS. The location of these binaries will be changed to the official release github folder at a later date)
+
 
 To download (clone) the script and binaries to your VPS, use the following command in VPS Linux console:
 
@@ -76,7 +76,7 @@ __publicipaddress:9321__ - this must be your masternode public IP address, which
 
 __masternodeprivatekey__ - this is your masternode private key which script will generate automatically. Each masternode will use its own unique private key to maintain secure communication with your Hot Wallet. You will have to generate a new key for each masternode you are setting up. Only your masternode and your hot wallet will be in possession of this private key. In case if you will need to change this key later for some reason, you will have to update it in your __masternode.conf__ in Hot Wallet as well as in the RPWN.conf in data directory on the masternode VPS.
 
-__output-tx-ID__ - this is your collateral payment Transaction ID which is unique for each masternode. It can be easily located in the transaction details (Transactions tab) or in the list of your **masternode outputs**. This TxID also acts as unique masternode ID on the Reden network.
+__output-tx-ID__ - this is your collateral payment Transaction ID which is unique for each masternode. It can be easily located in the transaction details (Transactions tab) or in the list of your **masternode outputs**. This TxID also acts as unique masternode ID on the RESPAWN network.
 
 __output-tx-index__ - this is a single-digit value (0 or 1) which is shown in the **masternode outputs**
 
@@ -99,7 +99,7 @@ IMPORTANT: Spend some time and double check each value you just entered. Copy/pa
 
 Finally, you need to either __restart__ the wallet app, unlock it with your encryption password. At this point the wallet app will read your __masternode.conf__ file and populate the Masternodes tab. Newly added nodes will show up as MISSING, which is normal.
 
-Once the wallet is fully synchronized and your masternode setup script on VPS has finished its synchronization with the network, you can **issue a start broadcast** from your hot wallet to tell the others on Reden network about your new masternode.
+Once the wallet is fully synchronized and your masternode setup script on VPS has finished its synchronization with the network, you can **issue a start broadcast** from your hot wallet to tell the others on RESPAWN network about your new masternode.
 
 Todo so you can either run a simple command in Debug Console (Tools -> Debug console):
 
@@ -118,7 +118,7 @@ Or, as an alternative, you can issue a start broadcast from the wallet Masternod
 Masternodes -> Select masternode -> RightClick -> start alias
 ```
 
-The wallet should respond with **"masternode started successfully"** as long as the masternode collateral payment was done correctly in step (2) and it had at least 15 confirmations. This only means that the conditions to send the start broadcast are satisfied and that the start command was communicated to peers.
+The wallet should respond with **"masternode started successfully"** as long as the masternode 3k RPWN collateral payment was done correctly in step (2) and it had at least 15 confirmations. This only means that the conditions to send the start broadcast are satisfied and that the start command was communicated to peers.
 
 Go back to your VPS and wait for the status of your new masternode to change to "Masternode successfully started". This may take some time and you may need to wait for several hours until your new masternode completes sync process.
 
@@ -138,7 +138,7 @@ sudo tail -f ~/.RPWNcore/debug.log
 
 And for those who wonder what does **RPWN.conf** file looks like for a typical masternode which the setup script generates, here's an example below...
 
-Note that both, the __externalip__ should match the IP address and __masternodeprivkey__ should math the private key in your  __masternode.conf__ of your hot wallet in order for the masternode to function properly. If any of these two parameters change, they must be changed in both, the reden.conf file on the masternode VPS (located in /root/.RPWNcore directory) and masternode.conf on Hot Wallet PC (located in %appdata%/RPWNcore folder).
+Note that both, the __externalip__ should match the IP address and __masternodeprivkey__ should math the private key in your  __masternode.conf__ of your hot wallet in order for the masternode to function properly. If any of these two parameters change, they must be changed in both, the RWPN.conf file on the masternode VPS (located in /root/.RPWNcore directory) and masternode.conf on Hot Wallet PC (located in %appdata%/RPWNcore folder).
 
 Example: 
 
@@ -195,37 +195,41 @@ Typically you should see more than a few nodes listed in the table and the amoun
 
 Currently RPWN nodes will display most (if not all) peers with IPv6 addresses. This is normal as long as the data is being transferred and peers stay connected for a long time. Initially, when the node is just started, the outbound connection table may not show any peers for quite some time. It may take several hours to build up a healthy and stable list of peers.
 
-Sample output of the script from node 45.76.12.139 on Apr-26th 2018:
+Sample output of the script from node 165.227.154.210 on June-9th 2018:
+
 ```
 ===========================================================================
-Outbound connections to other RPWN nodes [RPWN datadir: /root/.RPWNcore]
+Outbound connections to other RESPAWN nodes [RPWN datadir: /root/.RPWNcore]
 ===========================================================================
 Node IP               Ping    Rx/Tx     Since  Hdrs   Height  Time   Ban
 Address               (ms)   (KBytes)   Block  Syncd  Blocks  (min)  Score
 ===========================================================================
-95.171.6.105:9321     118   6818/7929  2586   3706   3706    2361   0
-24.176.52.93:9321     37    5770/6829  2614   3706   3706    2301   0
-38.103.14.19:9321     8     9787/8024  2657   3706   3706    2208   0
-185.109.54.242:9321   134   4765/4824  2796   3706   3706    1908   0
-203.210.232.37:9321   261   4227/4316  2893   3706   3706    1716   0
-103.6.54.182:9321     279   2584/2638  3182   3706   3706    1111   0
+159.65.182.234:9321  84    922/255   46207   46210   46210    141   0
+85.15.69.230:9321    153   916/269   46208   46208   46208    141   0
+118.27.12.51:9321    273   866/217   46210   46210   46210    141   0
+84.200.17.128:9321   9     1043/268  46210   46342   46342    141   0
+113.28.67.49:9321    254   49/49     46313   46313   46313    27    0
+172.245.209.8:9321   85    56/61     46315   46315   46315    25    0
+167.99.43.152:9321   2     793/35    23461   23461   -1       24    0
+198.13.56.178:9321   259   38/40     46318   46318   46318    23    0
 ===========================================================================
- 22:14:21 up 3 days, 22:59,  3 users,  load average: 0.01, 0.03, 0.00
+ 17:51:38 up 23:52,  1 user,  load average: 0.00, 0.00, 0.00
 ===========================================================================
 Masternode Status:
-# RPWN-cli -datadir=/root/.RPWNcore masternode status
+# RESPAWN masternode status
 {
-  "vin": "CTxIn(COutPoint(0a5afa9e8c41d003c4399f089bc54880e05ce8a051d30932d236ba12b5d1040b, 0), scriptSig=)",
-  "service": "45.76.12.139:9321",
-  "payee": "oXzYZLmj9D6o6XtdK3M3xY2xCfNTSW464m",
+  "outpoint": "a71513f3c29a44eea69bb90759d4cbc89c7594c41fa4932e309617a6faeccafe-1",
+  "service": "188.166.24.178:9321",
+  "payee": "oS8M3Unrm4tQ21Ew9g3ryuqYB2gjExjXRt",
   "status": "Masternode successfully started"
 }
 ===========================================================================
 Sync Status:
-# RPWN-cli -datadir=/root/.RPWNcore mnsync status
+# RESPAWN mnsync status
 {
   "AssetID": 999,
   "AssetName": "MASTERNODE_SYNC_FINISHED",
+  "AssetStartTime": 1528558346,
   "Attempt": 0,
   "IsBlockchainSynced": true,
   "IsMasternodeListSynced": true,
@@ -235,33 +239,30 @@ Sync Status:
 }
 ===========================================================================
 Masternode Information:
-# RPWN-cli -datadir=/root/.RPWNcore getinfo
+# RESPAWN getinfo
 {
-  "version": 2000001,
-  "protocolversion": 70206,
-  "walletversion": 61000,
+  "version": 120502,
+  "protocolversion": 70216,
+  "walletversion": 62000,
   "balance": 0.00000000,
   "privatesend_balance": 0.00000000,
-  "blocks": 3706,
+  "blocks": 46342,
   "timeoffset": 0,
-  "connections": 14,
+  "connections": 12,
   "proxy": "",
-  "difficulty": 394.7427119361897,
+  "difficulty": 0.7232166504811512,
   "testnet": false,
-  "keypoololdest": 1524361411,
-  "keypoolsize": 1001,
+  "keypoololdest": 1528477238,
+  "keypoolsize": 999,
   "paytxfee": 0.00000000,
-  "relayfee": 0.00010000,
+  "relayfee": 0.00001000,
   "errors": ""
 }
 ===========================================================================
 Usage: nodemon.sh [refresh delay] [datadir index]
 Example: nodemon.sh 10 22 will run every 10 seconds and query RPWNd in /root/.RPWNcore22
 
-
 Press Ctrl-C to Exit...
-
-```
 
 * * *
 
