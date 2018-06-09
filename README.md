@@ -138,7 +138,7 @@ sudo tail -f ~/.RPWNcore/debug.log
 
 And for those who wonder what does **RPWN.conf** file looks like for a typical masternode which the setup script generates, here's an example below...
 
-Note that both, the __externalip__ should match the IP address and __masternodeprivkey__ should math the private key in your  __masternode.conf__ of your hot wallet in order for the masternode to function properly. If any of these two parameters change, they must be changed in both, the RWPN.conf file on the masternode VPS (located in /root/.RPWNcore directory) and masternode.conf on Hot Wallet PC (located in %appdata%/RPWNcore folder).
+Note that both, the __externalip__ should match the IP address and __masternodeprivkey__ should match the private key in your  __masternode.conf__ of your hot wallet in order for the masternode to function properly. If any of these two parameters change, they must be changed in both, the RPWN.conf file on the masternode VPS (located in /root/.RPWNcore directory) and masternode.conf on Hot Wallet PC (located in %appdata%/RPWNcore folder).
 
 Example: 
 
