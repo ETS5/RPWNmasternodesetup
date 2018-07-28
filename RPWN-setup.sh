@@ -82,6 +82,15 @@ sudo apt-get -y install wget nano htop jq
 sudo apt-get -y install libzmq3-dev
 sudo apt-get -y install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
 sudo apt-get -y install libevent-dev
+sudo apt-get install build-essential  libssl-dev libminiupnpc-dev libevent-dev -y
+sudo apt-get install git -y
+sudo apt-get install nano -y
+sudo apt-get install pwgen -y
+sudo apt-get install dnsutils -y
+sudo apt-get install zip unzip -y
+sudo apt-get install libzmq3-dev -y
+sudo apt-get install libboost-all-dev -y
+sudo apt-get install libminiupnpc-dev -y
 
 sudo apt -y install software-properties-common
 sudo add-apt-repository ppa:bitcoin/bitcoin -y
@@ -98,15 +107,43 @@ sudo apt-get update -y
 
 sudo apt install unzip
 
+#Network Settings
+echo -e "${GREEN}Installing Network Settings...${NC}"
+{
+sudo apt-get install ufw -y
+} &> /dev/null
+echo -ne '[##                 ]  (10%)\r'
+{
+sudo apt-get update -y
+} &> /dev/null
+echo -ne '[######             ] (30%)\r'
+{
 sudo ufw default deny incoming
+} &> /dev/null
+echo -ne '[#########          ] (50%)\r'
+{
 sudo ufw default allow outgoing
 sudo ufw allow ssh
+} &> /dev/null
+echo -ne '[###########        ] (60%)\r'
+{
 sudo ufw allow $PORT/tcp
+sudo ufw allow $RPC/tcp
+} &> /dev/null
+echo -ne '[###############    ] (80%)\r'
+{
 sudo ufw allow 22/tcp
 sudo ufw limit 22/tcp
+} &> /dev/null
+echo -ne '[#################  ] (90%)\r'
+{
 echo -e "${YELLOW}"
 sudo ufw --force enable
 echo -e "${NC}"
+} &> /dev/null
+echo -ne '[###################] (100%)\n'
+
+echo -e "${GREEN}Packages complete....${NC}"
 
 #Generating Random Password for JSON RPC
 rpcuser=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
