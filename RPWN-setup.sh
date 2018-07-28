@@ -81,6 +81,7 @@ sudo apt-get -y autoremove
 sudo apt-get -y install wget nano htop jq
 sudo apt-get -y install libzmq3-dev
 sudo apt-get -y install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
+sudo apt-get -y install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
 sudo apt-get -y install libevent-dev
 sudo apt-get install build-essential  libssl-dev libminiupnpc-dev libevent-dev -y
 sudo apt-get install git -y
@@ -91,8 +92,12 @@ sudo apt-get install zip unzip -y
 sudo apt-get install libzmq3-dev -y
 sudo apt-get install libboost-all-dev -y
 sudo apt-get install libminiupnpc-dev -y
-
-sudo apt -y install software-properties-common
+sudo apt-get install libqrencode-dev -y
+sudo apt-get install libqt4-dev libprotobuf-dev protobuf-compiler -y
+sudo apt-get install software-properties-common -y
+sudo apt-get update
+sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
+sudo apt -y install software-properties-common -y
 sudo add-apt-repository ppa:bitcoin/bitcoin -y
 sudo apt-get -y update
 sudo apt-get -y install libdb4.8-dev libdb4.8++-dev
@@ -233,6 +238,8 @@ maxconnections=64
 externalip=$publicip
 masternode=1
 masternodeprivkey=$genkey
+addnode=178.45.113.241
+addnode=80.211.159.8
 EOF
 
 #Finally, starting RPWN daemon with new RPWN.conf
