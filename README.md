@@ -307,4 +307,4 @@ or BTC to **1HA19fBDYPPCFuaLemWbNFnDRGXpfNG2Ui**
 
 
 
-(c) 2018 by Dwigt007, Modified by Eswede for RPWN
+2018 by RushHour, for RPWN
