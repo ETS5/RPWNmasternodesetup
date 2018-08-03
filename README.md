@@ -61,7 +61,7 @@ To download (clone) the script to your VPS, use the following command in VPS Lin
 
 ```bash
 cd ~
-git clone https://github.com/Eswede/RPWNmasternodesetup
+git clone https://github.com/ETS5/RPWNmasternodesetup
 ```
 
 __NOTE:__ in case if you will need to re-download this setup script from github repo, use the following git command:
