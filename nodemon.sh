@@ -1,17 +1,13 @@
 #!/bin/bash
-# Eswede nodemon 1.1 - RESPAWN Masternode Monitoring
+# nodemon 1.1 - RESPAWN Masternode Monitoring
 #If you find this script helpful
 # ...please donate to the devfound: RPWN  **oMoN1fqkp7Rz9QfRDPAsjsfKM2uNskq76V**
 # or BTC to **1HA19fBDYPPCFuaLemWbNFnDRGXpfNG2Ui**
 
-#...please donate RPWN to the devfound: oMoN1fqkp7Rz9QfRDPAsjsfKM2uNskq76V
-
-#--ESWEDE
-
 #Processing command line params
 if [ -z $1 ]; then dly=1; else dly=$1; fi   # Default refresh time is 1 sec
 
-datadir="/home/$USER/.RPWNcore$2"   # Default datadir is /root/.RPWNcore
+datadir="/$USER/.RPWNcore$2"   # Default datadir is /root/.RPWNcore
  
 # Install jq if it's not present
 dpkg -s jq 2>/dev/null >/dev/null || sudo apt-get -y install jq
